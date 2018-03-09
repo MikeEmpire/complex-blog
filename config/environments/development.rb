@@ -13,18 +13,24 @@ Rails.application.configure do
   config.consider_all_requests_local = true
 
   # Enable/disable caching. By default caching is disabled.
-  if Rails.root.join('tmp/caching-dev.txt').exist?
+  Rails.root.join('tmp/caching-dev.txt').exist?
     config.action_controller.perform_caching = true
 
-    config.cache_store = :memory_store
+    config.cache_store = :redis_store, {
+      host: 'localhost',
+      port: Rails.application.secrets.redis_port,
+      db: Rails.application.secrets.redis_cache_database,
+      namespace: Rails.application.secrets.redis_cache_namespace
+    }
     config.public_file_server.headers = {
       'Cache-Control' => "public, max-age=#{2.days.seconds.to_i}"
     }
-  else
-    config.action_controller.perform_caching = false
 
-    config.cache_store = :null_store
-  end
+  Paperclip.options[:command_path] = "/usr/local/bin/"
+
+  Paperclip.options[:log] = true
+
+  Paperclip.options[:log_command] = true
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false

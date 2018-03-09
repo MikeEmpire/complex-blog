@@ -2,7 +2,7 @@
 
 <p>
   <strong> title:</strong>
-  <%= @post. title %>
+  <%= @post.title %>
 </p>
 
 <p>
@@ -11,9 +11,14 @@
 </p>
 
 <p>
-  <strong>Time created:</strong>
-  <%= @post.time_created %>
+  <strong>Category:</strong>
+  <%= @post.category %>
 </p>
+
+<div>
+  <strong>Image:</strong>
+  <%= image_tag @post.image, class: "header" %>
+</div>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
