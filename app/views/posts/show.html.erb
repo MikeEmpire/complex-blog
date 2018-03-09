@@ -17,7 +17,12 @@
 
 <div>
   <strong>Image:</strong>
-  <%= image_tag @post.image, class: "header" %>
+  <%= image_tag @post.image %>
+</div>
+
+<div>
+  <strong>Date:</strong>
+  <%= @post.created_at %>
 </div>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
