@@ -13,6 +13,7 @@ gem 'turbolinks', '~> 5'
 gem 'paperclip', '~> 5.2.1'
 gem 'figaro'
 gem 'redis'
+gem 'simple_form'
 gem 'redis-rails'
 gem 'jbuilder', '~> 2.5'
 group :development, :test do

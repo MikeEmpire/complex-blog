@@ -25,5 +25,6 @@
   <%= @post.created_at %>
 </div>
 
+<%= link_to "Add Comment", new_comment_path(post_id: @post.id) %>
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
