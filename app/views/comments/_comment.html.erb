@@ -1,0 +1,5 @@
+<p><%= comment.comment %></p>
+
+<%= link_to "Delete", [comment.post, comment],
+                      method: :delete, class: "btn btn-primary",
+                      data: { confirm: 'Are you sure?'} %>

@@ -1,0 +1,4 @@
+<%= simple_form_for([@post, @post.comments.build]) do |f| %>
+  <%= f.input :comment, input_html: { class: 'textarea' }, wrapper: false, label_html: {class: 'label' } %>
+  <%= f.button :submit, 'Leave a Reply', class: 'button is-primary' %>
+<% end %>
