@@ -20,6 +20,12 @@ module ComplexBlog
       g.fixture_replacement :factory_bot, dir: "spec/factories"
     end
 
+    # serve up the assets path
+    config.assets.paths << Rails.root.join("app", "assets", "fonts")
+
+    # Add asset path for custom fonts
+    config.assets.enabled = true
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
 
