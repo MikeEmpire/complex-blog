@@ -14,80 +14,33 @@
 //= require rails-ujs
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require greensock/TweenLite
+//= require greensock/easing/EasePack
+//= require greensock/jquery.gsap.js
 //= require_tree .
 
 document.addEventListener("turbolinks:load", function() {
-	var main = document.querySelector('main');
-	// Bind our listeners on the document object so we can intercept any anchors
-	document.addEventListener('click', function(e) {
-		var el = e.target;
-		// Go up in the nodelist until we find a node with a href
-		while (el && !el.href) {
-			el = el.parentNode;
-		}
-
-		if (el) {
-			e.preventDefault();
-			history.pushState(null, null, el.href);
-			changePage();
-
-			return;
+	var transEffect = Barba.BaseTransition.extend({
+		start: function(){
+			this.newContainerLoading.then(val => this.fadeInNewcontent($(this.newContainer)));
+		},
+		fadeInNewcontent: function(nc) {
+			TweenLite.to(nc, 1, {opacity: 1});
+			var _this = this;
+			$(this.oldContainer).fadeOut(1000).promise().done(() => {
+				nc.css('visibility', 'visible');
+				TweenLite.to(nc, 1, {opacity: 0, onComplete: function() {
+					this.done();
+				}});
+			});
 		}
 	});
 
-	var cache = {};
-
-	// Fetches the html content of a page given its URL
-	function loadPage(url) {
-		var myHeaders = new Headers();
-		myHeaders.append('x-pjax', 'yes');
-
-		if (cache[url]) {
-			return new Promise(function(resolve) {
-				resolve(cache[url]);
-			});
-		}
-
-		return fetch(url, {
-			method: 'GET',
-			headers: myHeaders,
-		}).then(function(response) {
-			cache[url] = response.text();
-			return cache[url];
-		});
+	Barba.Pjax.getTransition = function() {
+		return transEffect;
 	}
-
-	function changePage() {
-		// after the URL is already changed
-		var url = window.location.href;
-
-		loadPage(url).then(function(responseText) {
-			var wrapper = document.createElement('div');
-					wrapper.innerHTML = responseText;
-			var oldContent = document.querySelector('.cc');
-			var newContent = wrapper.querySelector('.cc');
-
-			main.appendChild(newContent);
-			animate(oldContent, newContent);
-		});
-	};
-
-	function animate(oldContent, newContent) {
-		oldContent.style.position = 'absolute';
-
-		var fadeOut = oldContent.animate({
-			opacity: [1, 0]
-		}, 600);
-
-		var fadeIn = newContent.animate({
-			opacity: [0, 1]
-		}, 600);
-
-		fadeIn.onfinish = function() {
-			oldContent.parentNode.removeChild(oldContent);
-		};
-	}
-
+	Barba.Pjax.start();
+	// Navigation Javascript
 	(function() {
 		var container = document.querySelector( 'div.container' ),
 			triggerBttn = document.getElementById( 'trigger-overlay' ),
