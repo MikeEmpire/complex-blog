@@ -39,10 +39,21 @@ document.addEventListener("turbolinks:load", function() {
 
 	// Fetches the html content of a page given its URL
 	function loadPage(url) {
+		var myHeaders = new Headers();
+		myHeaders.append('x-pjax', 'yes');
+
+		if (cache[url]) {
+			return new Promise(function(resolve) {
+				resolve(cache[url]);
+			});
+		}
+
 		return fetch(url, {
-			method: 'GET'
+			method: 'GET',
+			headers: myHeaders,
 		}).then(function(response) {
-			return response.text();
+			cache[url] = response.text();
+			return cache[url];
 		});
 	}
 
@@ -66,11 +77,11 @@ document.addEventListener("turbolinks:load", function() {
 
 		var fadeOut = oldContent.animate({
 			opacity: [1, 0]
-		}, 1000);
+		}, 600);
 
 		var fadeIn = newContent.animate({
 			opacity: [0, 1]
-		}, 1000);
+		}, 600);
 
 		fadeIn.onfinish = function() {
 			oldContent.parentNode.removeChild(oldContent);
@@ -80,6 +91,7 @@ document.addEventListener("turbolinks:load", function() {
 	(function() {
 		var container = document.querySelector( 'div.container' ),
 			triggerBttn = document.getElementById( 'trigger-overlay' ),
+			navLinks = document.querySelectorAll('.overlay ul li a'),
 			overlay = document.querySelector('div.overlay'),
 			closeBttn = document.querySelector('button.overlay-close');
 			transEndEventNames = {
@@ -117,6 +129,9 @@ document.addEventListener("turbolinks:load", function() {
 			}
 		}
 
+		navLinks.forEach(function(elem) {
+			elem.addEventListener('click', toggleOverlay)
+		})
 		triggerBttn.addEventListener( 'click', toggleOverlay );
 		closeBttn.addEventListener( 'click', toggleOverlay );
 	})();

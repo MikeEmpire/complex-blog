@@ -15,6 +15,7 @@ gem 'figaro'
 gem 'redis'
 gem 'simple_form'
 gem 'redis-rails'
+gem 'greensock-rails'
 gem 'jbuilder', '~> 2.5'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

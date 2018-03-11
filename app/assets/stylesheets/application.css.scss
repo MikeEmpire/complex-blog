@@ -189,19 +189,20 @@ html, body {
 }
 
 .visitors {
-	color: white;
   .container {
   @include full-screen-bg("visitors_bg.jpg");
     #title {
       position: relative;
       top: 26%;
       h1 {
+				color: white;
         font-family: "Playfair Display";
         font-size: 5em;
         font-weight: 700;
         text-transform: uppercase;
       }
       p {
+				color: white;
 				font-family: "Raleway";
 		    font-size: 3rem;
 		    line-height: 5rem;
