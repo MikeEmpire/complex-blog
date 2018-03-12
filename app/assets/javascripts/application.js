@@ -14,32 +14,34 @@
 //= require rails-ujs
 //= require turbolinks
 //= require bootstrap-sprockets
-//= require greensock/TweenLite
-//= require greensock/easing/EasePack
-//= require greensock/jquery.gsap.js
 //= require_tree .
 
-document.addEventListener("turbolinks:load", function() {
-	var transEffect = Barba.BaseTransition.extend({
-		start: function(){
-			this.newContainerLoading.then(val => this.fadeInNewcontent($(this.newContainer)));
-		},
-		fadeInNewcontent: function(nc) {
-			TweenLite.to(nc, 1, {opacity: 1});
-			var _this = this;
-			$(this.oldContainer).fadeOut(1000).promise().done(() => {
-				nc.css('visibility', 'visible');
-				TweenLite.to(nc, 1, {opacity: 0, onComplete: function() {
-					this.done();
-				}});
-			});
-		}
-	});
+$(document).on('turbolinks:click', function(){
+  $('.page-content')
+		.hide()
+    .addClass('animated fadeOutUp')
+    .off('webkitAnimationEnd oanimationend msAnimationEnd animationend');
+});
 
-	Barba.Pjax.getTransition = function() {
-		return transEffect;
+$(document).on('page:fetch', function() {
+  $(".spinner").show();
+});
+
+$(document).on('page:change', function() {
+  $(".spinner").hide();
+});
+
+$(document).on('turbolinks:load', function(event) {
+	$(".spinner").hide();
+	if (event.originalEvent.data.timing.visitStart) {
+		$('.page-content')
+    .addClass('animated fadeInUp')
+    .one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(){
+      $('.page-content').removeClass('animated');
+    });
+	} else {
+		$('.page-content').removeClass('hide');
 	}
-	Barba.Pjax.start();
 	// Navigation Javascript
 	(function() {
 		var container = document.querySelector( 'div.container' ),

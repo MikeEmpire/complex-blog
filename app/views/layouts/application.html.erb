@@ -2,21 +2,25 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "Complex Blog" %></title>
-    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Complex Blog" %>">
+    <title><%= content_for?(:title) ? yield(:title) : "Official Website for Kameron Hay" %></title>
+    <meta name="turbolinks-cache-control" content="no-cache">
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Official Website for Kameron Hay" %>">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
     <%= csrf_meta_tags %>
   </head>
   <body class="<%= controller.controller_name %>">
+    <div class="spinner">
+      <div class="bounce1"></div>
+      <div class="bounce2"></div>
+      <div class="bounce3"></div>
+    </div>
     <header>
       <%= render 'layouts/navigation' %>
     </header>
-    <main role="main" id="barba-wrapper">
+    <main role="main" class="page-content">
       <%= render 'layouts/messages' %>
-       <div class="barba-container">
-         <%= yield %>
-       </div>
+      <%= yield %>
     </main>
   </body>
 </html>

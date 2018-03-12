@@ -33,7 +33,7 @@ $color-4: #e9e9e9;
 }
 
 p#trigger-overlay {
-  color: white;
+  color: $color-1;
 	cursor: context-menu;
 	font-family: "Playfair Display";
   font-size: -webkit-xxx-large;
@@ -222,6 +222,54 @@ html, body {
 					color: $color-2;
 				}
 			}
+    }
+  }
+}
+
+.pages {
+  color: white;
+	h1, h2, h3 {
+		font-family: "Playfair Display";
+	}
+	p {
+		font-family: "Raleway";
+		line-height: 23px;
+	}
+  #header-img {
+    position: absolute;
+    width: 30%;
+  }
+  #body-img {
+    position: absolute;
+    right: 3%;
+    top: 50%;
+    width: 40%;
+  }
+  #more-box {
+    background:  $color-2;
+    margin-bottom: 10%;
+    margin-top: 23%;
+    padding: 20px;
+    h3 {
+      font-weight: 500;
+      font-style: italic;
+    }
+  }
+  #header-box {
+    background-color: salmon;
+		margin-bottom: 17%;
+    margin-left: 16%;
+		margin-top: 5%;
+    padding: 10px;
+    width: 80%;
+    h1 {
+      font-weight: 600;
+      font-style: italic;
+    }
+    h5 {
+      font-family: "Raleway";
+      font-size: 1.5em;
+      font-weight: 300;
     }
   }
 }
