@@ -1,3 +1,24 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.posts {
+  width: 90%;
+  &::after {
+    clear: both;
+    content: '';
+    display: block;
+  }
+  .grid {
+    height: 100vh !important;
+    .grid-sizer,
+    .grid-item {
+      float: left;
+      height: 10%;
+      width: 20%;
+    }
+    .grid-item--width2 {
+      width: 40%;
+    }
+  }
+}
