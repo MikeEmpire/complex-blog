@@ -26,7 +26,7 @@ Rails.application.configure do
       'Cache-Control' => "public, max-age=#{2.days.seconds.to_i}"
     }
 
-  Paperclip.options[:command_path] = "/usr/local/bin/"
+  Paperclip.options[:command_path] = "/usr/local/bin/identify"
 
   Paperclip.options[:log] = true
 
