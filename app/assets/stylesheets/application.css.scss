@@ -32,6 +32,11 @@ $color-4: #e9e9e9;
 	width: 100%;
 }
 
+header#nav {
+  height: 5em;
+  width: 100%;
+}
+
 p#trigger-overlay {
   color: $color-1;
 	cursor: context-menu;
@@ -41,7 +46,7 @@ p#trigger-overlay {
 	font-weight: 900;
   position: absolute;
   right: 10%;
-  top: 3%;
+  top: 2%;
 	&:hover {
 		color: $color-2;
 		transition: .4s;

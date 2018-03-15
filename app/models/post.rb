@@ -16,6 +16,14 @@ class Post < ApplicationRecord
     "Album Reviews" => 5
   }
 
+  def next(post)
+    Post.where('id < ?', post.id).last
+  end
+
+  def previous(post)
+    Post.where('id > ?', post.id).first
+  end
+
   def check_file_size
     valid?
     errors[:image_file_size].blank?

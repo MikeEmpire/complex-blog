@@ -1,37 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong> title:</strong>
-  <%= @post.title %>
-</p>
-
-<p>
-  <strong>Body:</strong>
-  <%= @post.body %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @post.category %>
-</p>
-
-<div>
-  <strong>Image:</strong>
-  <%= image_tag @post.image %>
-</div>
-
-<div>
-  <strong>Date:</strong>
-  <%= @post.created_at %>
-</div>
-
-<div>
-  <strong><%= @post.comments.count %></strong> Comments
-  <%= render @post.comments %>
-  <hr />
-  <p>Add Comment</p>
-  <%= render 'comments/form' %>
-</div>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<article class="post">
+  <div>
+    <div class="absolute-bg" style="background-image: url('<%= @post.image(:large) %>')">
+      <%= link_to "All Work", posts_path,  id: "clip__link" %>
+    </div>
+  </div>
+  <div class="post__container">
+    <div>
+      <span class="post__category"><%= @post.category %></span>
+      <div class="post__content">
+        <header>
+          <time class="post__time"><%= @post.created_at %></time>
+          <h1 class="post__header"><%= @post.title %></h1>
+        </header>
+        <p class="post__text"><%= raw @post.body %></p>
+      </div>
+      <div class="post__link">
+        <% if @post.next(@post) %>
+          <%= link_to "Next Post", @post.next(@post) %>
+        <% elsif @post.previous(@post) %>
+          <%= link_to "Previous Post", @post.previous(@previous) %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</article>

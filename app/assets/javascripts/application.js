@@ -14,6 +14,7 @@
 //= require rails-ujs
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require ckeditor/init
 //= require_tree .
 
 $(document).on('turbolinks:click', function(){
