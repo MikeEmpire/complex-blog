@@ -5,6 +5,10 @@ $color-alpha: #d0f2ee;
 $color-black: #000;
 $color-grey: #a9b1b3;
 $color-white: #fff;
+$color-1: #99d3df;
+$color-2: #88BBD6;
+$color-3: #CDCDCD;
+$color-4: #e9e9e9;
 $font: 'Playfair Display';
 $mq-xs: 20em;
 $mq-sm: 30em;
@@ -21,6 +25,7 @@ $mq-xxl: 114em;
 }
 
 .posts {
+  width: 100%;
   #clip__link {
     position: absolute;
     top: 6%;
@@ -28,7 +33,6 @@ $mq-xxl: 114em;
     color: white;
     mix-blend-mode: difference;
   }
-  width: 100%;
 
   img {
     width: 100%;
@@ -47,18 +51,109 @@ $mq-xxl: 114em;
     .grid-sizer {
       width: 100%;
     }
-
+    #brand {
+      width: 25%;
+      h1 {
+        border-bottom: 0.1em solid black;
+        font-family: Raleway;
+        font-size: 4.5em;
+        text-align: center;
+        font-weight: 600;
+        line-height: 1.132em;
+        margin: 0px auto;
+        padding: 5px 20%;
+        overflow-wrap: break-word;
+        width: 90%;
+      }
+      p {
+        font-family: Raleway;
+        margin-top: 15%;
+        text-align: center;
+      }
+    }
+    #categories {
+      width: 75%;
+      h5 {
+        font-family: Raleway;
+        font-size: x-large;
+        padding-left: 8%;
+        text-align: center;
+      }
+      ul {
+        padding: 0;
+        li.btn {
+          display: inline;
+          font-size: 1em;
+          color: black;
+          padding: 1% 2.5%;
+          margin: 1%;
+          margin-bottom: 7%;
+        }
+      }
+    }
     .grid-item {
-      width: 22%;
-      margin: 1% 3.3%;
-
-      &:first-child {
-        width: 50%;
+      position: relative;
+      width: 25%;
+      overflow: hidden;
+      header {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px 10px;
+        h1 {
+          margin: 0;
+          color: white;
+          text-shadow: 0 1px 0 black;
+        }
+      }
+      img {
+        display: block;
+      }
+      .overlay {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+        transition: .5s ease;
+        background-color: rgba(136, 187, 214, 0.8);
+        a.btn.btn-primary {
+          color: white;
+          border: 2px solid salmon;
+          padding: 10px 25px;
+          font-family: 'Lato', sans-serif;
+          font-weight: 500;
+          background: transparent;
+          border-radius: 0px;
+          outline: none !important;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          float: right;
+          margin-right: 6%;
+          &:hover {
+            background: salmon;
+            color: $color-4;
+          }
+          &:active {
+            top: 2px;
+          }
+        }
       }
 
-      &:nth-child(5n + 1) {
-        width: 40%;
-        margin: 0 2% 2% 0;
+      &:hover .overlay {
+        opacity: 1;
+      }
+      .title h3 {
+        color: white;
+        font-family: Playfair Display;
+        font-size: xx-large;
+        line-height: 1.3em;
+        padding: 8%;
+        width: 80%;
       }
     }
 
@@ -86,6 +181,7 @@ $mq-xxl: 114em;
 
     p {
       font-family: "Raleway";
+      font-weight: 400;
       margin: 0;
       color: black;
     }
@@ -115,37 +211,10 @@ $mq-xxl: 114em;
   /**
  * Text Selection
  */
-  ::selection {
+  &::selection {
     color: $color-white;
     background-color: $color-alpha;
     text-shadow: none;
-  }
-  /**
- * Body
- */
-  body {
-    font-size: 100%;
-    line-height: 1.6;
-    color: $color-black;
-    background-color: $color-white;
-    @media (min-width: $mq-xs) {
-      font-size: 102.5%;
-    }
-    @media (min-width: $mq-sm) {
-      font-size: 105%;
-    }
-    @media (min-width: $mq-md) {
-      font-size: 107.5%;
-    }
-    @media (min-width: $mq-lg) {
-      font-size: 110%;
-    }
-    @media (min-width: $mq-xl) {
-      font-size: 115%;
-    }
-    @media (min-width: $mq-xxl) {
-      font-size: 125%;
-    }
   }
   /**
  * Components
@@ -265,7 +334,7 @@ $mq-xxl: 114em;
     background-repeat: no-repeat;
     background-size: cover;
     overflow: hidden;
-    animation: fade-in 0.8s ease-in-out both 1s;
+    animation: fade-in 0.8s ease-in-out both .6s;
   }
   /**
  * Animations
@@ -303,3 +372,40 @@ $mq-xxl: 114em;
     }
   }
 }
+
+@media (min-width:320px)  {
+   /* smartphones, iPhone, portrait 480x320 phones */
+   .posts .grid #brand h1 {
+     font-size: .8em;
+   }
+}
+@media (min-width:481px)  {
+   /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+   .posts .grid #brand h1 {
+     font-size: .8em;
+   }
+ }
+@media (min-width:641px)  {
+   /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+   .posts .grid #brand h1 {
+     font-size: 3em;
+   }
+ }
+@media (min-width:961px)  {
+   /* tablet, landscape iPad, lo-res laptops ands desktops */
+   .posts .grid #brand h1 {
+     font-size: 3em;
+   }
+ }
+@media (min-width:1025px) {
+   /* big landscape tablets, laptops, and desktops */
+   .posts .grid #brand h1 {
+     font-size: 6em;
+   }
+ }
+@media (min-width:1281px) {
+   /* hi-res laptops and desktops */
+   .posts .grid #brand h1 {
+     font-size: 6em;
+   }
+ }

@@ -115,6 +115,7 @@ GEM
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     high_voltage (3.0.0)
+    htmlentities (4.3.4)
     hub (1.12.4)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
@@ -304,11 +305,13 @@ DEPENDENCIES
   faker
   figaro
   high_voltage
+  htmlentities
   hub
   jbuilder (~> 2.5)
   jquery-rails
   launchy
   listen (>= 3.0.5, < 3.2)
+  nokogiri
   paperclip (~> 5.2.1)
   pg (~> 0.18)
   puma (~> 3.7)

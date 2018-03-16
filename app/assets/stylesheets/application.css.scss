@@ -36,6 +36,37 @@ header#nav {
   height: 5em;
   width: 100%;
 }
+.page-title {
+  border-bottom: 4px solid salmon;
+  color: black;
+  font-family:  Playfair Display;
+  font-size: 6em;
+  padding-left: 3%;
+  padding-bottom: 13px;
+  width: 25rem;
+}
+
+.btn {
+  color: white;
+  border: 2px solid salmon;
+  padding: 10px 25px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  background: transparent;
+  border-radius: 0px;
+  outline: none !important;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  float: right;
+  margin-right: 6%;
+  &:hover {
+    background: salmon;
+    color: $color-4;
+  }
+  &:active {
+    top: 2px;
+  }
+}
 
 p#trigger-overlay {
   color: $color-1;

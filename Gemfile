@@ -14,6 +14,8 @@ gem 'paperclip', '~> 5.2.1'
 gem 'aws-sdk', '< 3.0'
 gem 'figaro'
 gem 'redis'
+gem "nokogiri"
+gem "htmlentities"
 gem 'ckeditor', github: 'galetahub/ckeditor'
 gem 'simple_form'
 gem 'redis-rails'

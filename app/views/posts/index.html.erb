@@ -1,12 +1,31 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Work</h1>
-
+<h1 class="page-title">Written Works</h1>
 <div class="grid">
   <div class="grid-sizer">
+    <div class="grid-item" id="brand">
+      <h1>Kameron</h1>
+      <p>Click the pictures to view the articles</p>
+    </div>
+    <div class="grid-item" id="categories">
+      <h5>Categories:</h5>
+      <ul class="categories">
+        <li class="btn">Music</li>
+        <li class="btn">Think Pieces</li>
+        <li class="btn">Style</li>
+        <li class="btn">Written Works</li>
+        <li class="btn">Album Reviews</li>
+      </ul>
+    </div>
     <% @posts.each do |post| %>
       <div class="grid-item">
-        <%= link_to (image_tag post.image(:small)), post %>
+        <%= link_to (image_tag post.image(:medium)), post %>
+        <div class="overlay">
+          <div class="title">
+            <h3><%= truncate(post.title, length: 50) %></h3>
+          </div>
+          <%= link_to "Read More", post, class: "btn btn-primary" %>
+      	</div>
         <% if current_user.try(:admin?) %>
           <%= link_to 'Edit', edit_post_path(post) %>
           <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
