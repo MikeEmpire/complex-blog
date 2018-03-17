@@ -92,9 +92,16 @@ $mq-xxl: 114em;
         li.btn {
           display: inline;
           font-size: 1em;
-          color: black;
+          color: white;
           padding: 1% 2.5%;
           margin: 1%;
+          &:hover {
+            color: white;
+          }
+          a:hover {
+            background-color: transparent;
+            text-decoration: none;
+          }
         }
       }
     }

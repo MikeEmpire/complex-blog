@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
   has_many :comments
-  has_attached_file :image, styles: { large: "600x600>", medium: "300x300#", small: "150x150#", thumb: "100x100#" },
+  has_attached_file :image, styles: { xlarge: "1400x1400>", large: "600x600>", medium: "300x300#", small: "150x150#", thumb: "100x100#" },
                     default_url: "/images/:style/missing.png",
                     :convert_options => { :all => "-quality 75 -strip" },
                     :storage => :s3,
