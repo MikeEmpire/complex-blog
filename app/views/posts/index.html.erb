@@ -5,16 +5,17 @@
   <div class="grid-sizer">
     <div class="grid-item" id="brand">
       <h1>Kameron</h1>
-      <p>Click the pictures to view the articles</p>
+      <p>Click a category on the right to filter by category.</p>
     </div>
     <div class="grid-item" id="categories">
       <h5>Categories:</h5>
       <ul class="categories">
-        <li class="btn">Music</li>
-        <li class="btn">Think Pieces</li>
-        <li class="btn">Style</li>
-        <li class="btn">Written Works</li>
-        <li class="btn">Album Reviews</li>
+        <li class="btn"><%= link_to "All", posts_path %></li>
+        <li class="btn"><%= link_to "Music", posts_path(:category => "Music") %></li>
+        <li class="btn"><%= link_to "Think Pieces", posts_path(:category => "Think Pieces") %></li>
+        <li class="btn"><%= link_to "Style", posts_path(:category => "Style") %></li>
+        <li class="btn"><%= link_to "Written Works", posts_path(:category => "Written Works") %></li>
+        <li class="btn"><%= link_to "Album Reviews", posts_path(:category => "Album Reviews") %></li>
       </ul>
     </div>
     <% @posts.each do |post| %>
@@ -23,13 +24,15 @@
         <div class="overlay">
           <div class="title">
             <h3><%= truncate(post.title, length: 50) %></h3>
+            <% if user_signed_in? %>
+              <% if current_user.try(:admin?) %>
+                <%= link_to 'Edit', edit_post_path(post), class: "admin__link" %>
+                <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "admin__link destroy" %>
+              <% end %>
+            <% end %>
           </div>
           <%= link_to "Read More", post, class: "btn btn-primary" %>
       	</div>
-        <% if current_user.try(:admin?) %>
-          <%= link_to 'Edit', edit_post_path(post) %>
-          <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% end %>
       </div>
     <% end %>
   </div>

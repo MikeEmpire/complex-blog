@@ -20,8 +20,12 @@ class Post < ApplicationRecord
     Post.where('id < ?', post.id).last
   end
 
-  def previous(post)
-    Post.where('id > ?', post.id).first
+  def first(post)
+    if (post)
+      Post.where('id > ?', post.id).first
+    else
+      Post.all.order("created_at").last
+    end
   end
 
   def check_file_size

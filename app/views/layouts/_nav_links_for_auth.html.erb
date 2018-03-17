@@ -7,5 +7,6 @@
 <% if user_signed_in? %>
   <% if current_user.try(:admin?) %>
     <li><%= link_to 'Users', users_path %></li>
+    <li><%= link_to 'Posts', posts_path %></li>
   <% end %>
 <% end %>

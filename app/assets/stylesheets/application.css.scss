@@ -34,13 +34,16 @@ $color-4: #e9e9e9;
 
 header#nav {
   height: 5em;
-  width: 100%;
+  position: fixed;
+  right: 0;
+  width: 21%;
+  z-index: 100;
 }
 .page-title {
   border-bottom: 4px solid salmon;
   color: black;
   font-family:  Playfair Display;
-  font-size: 6em;
+  font-size: xx-large;
   padding-left: 3%;
   padding-bottom: 13px;
   width: 25rem;
@@ -76,8 +79,9 @@ p#trigger-overlay {
 	font-style: italic;
 	font-weight: 900;
   position: absolute;
+  position: absolute;
   right: 10%;
-  top: 2%;
+  top: 21%;
 	&:hover {
 		color: $color-2;
 		transition: .4s;
@@ -141,14 +145,16 @@ p#trigger-overlay {
 .overlay ul li a {
 	font-size: 54px;
 	display: block;
-	color: #fff;
-	-webkit-transition: color 0.2s;
-	transition: color 0.2s;
+	color: $color-4;
+	-webkit-transition: all 0.3s ease;
+	transition: all 0.3s ease;
 }
 
 .overlay ul li a:hover,
 .overlay ul li a:focus {
-	color: #f0f0f0;
+  color: $color-1;
+  background-color: transparent;
+  text-decoration: none;
 }
 
 /* Effects */
@@ -226,7 +232,7 @@ html, body {
 
 .visitors {
   .container {
-  @include full-screen-bg("visitors_bg.jpg");
+  @include full-screen-bg("visitors_bg2.jpg");
     #title {
       position: relative;
       top: 26%;
@@ -264,6 +270,9 @@ html, body {
 
 .pages {
   color: white;
+  .row {
+    position: relative;
+  }
 	h1, h2, h3 {
 		font-family: "Playfair Display";
 	}
@@ -278,7 +287,6 @@ html, body {
   #body-img {
     position: absolute;
     right: 3%;
-    top: 50%;
     width: 40%;
   }
   #more-box {

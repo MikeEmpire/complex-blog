@@ -20,7 +20,9 @@
         <% if @post.next(@post) %>
           <%= link_to "Next Post", @post.next(@post) %>
         <% elsif @post.previous(@post) %>
-          <%= link_to "Previous Post", @post.previous(@previous) %>
+          <%= link_to "First Post", @post.first(@previous) %>
+        <% else %>
+          <%= link_to "All Work", posts_path %>
         <% end %>
       </div>
     </div>

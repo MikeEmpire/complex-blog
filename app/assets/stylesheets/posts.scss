@@ -26,6 +26,7 @@ $mq-xxl: 114em;
 
 .posts {
   width: 100%;
+
   #clip__link {
     position: absolute;
     top: 6%;
@@ -51,8 +52,10 @@ $mq-xxl: 114em;
     .grid-sizer {
       width: 100%;
     }
+
     #brand {
       width: 25%;
+
       h1 {
         border-bottom: 0.1em solid black;
         font-family: Raleway;
@@ -60,56 +63,58 @@ $mq-xxl: 114em;
         text-align: center;
         font-weight: 600;
         line-height: 1.132em;
-        margin: 0px auto;
+        margin: 0 auto;
         padding: 5px 20%;
         overflow-wrap: break-word;
         width: 90%;
       }
+
       p {
         font-family: Raleway;
         margin-top: 15%;
         text-align: center;
       }
     }
+
     #categories {
       width: 75%;
+
       h5 {
         font-family: Raleway;
         font-size: x-large;
         padding-left: 8%;
         text-align: center;
       }
+
       ul {
         padding: 0;
+
         li.btn {
           display: inline;
           font-size: 1em;
           color: black;
           padding: 1% 2.5%;
           margin: 1%;
-          margin-bottom: 7%;
         }
       }
     }
+
     .grid-item {
       position: relative;
       width: 25%;
       overflow: hidden;
-      header {
+      .admin__link {
+        color: cornflowerblue;
         position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        padding: 20px 10px;
-        h1 {
-          margin: 0;
-          color: white;
-          text-shadow: 0 1px 0 black;
-        }
+        top: 0;
+      }
+      .admin__link.destroy {
+        right: 4%;
       }
       img {
         display: block;
       }
+
       .overlay {
         position: absolute;
         top: 0;
@@ -118,39 +123,40 @@ $mq-xxl: 114em;
         right: 0;
         height: 100%;
         width: 100%;
-        opacity: 0;
-        transition: .5s ease;
-        background-color: rgba(136, 187, 214, 0.8);
+        opacity: 1;
+        background: transparent;
+        transition: 0.5s ease;
+        background-image: linear-gradient(to right, black, transparent);
         a.btn.btn-primary {
           color: white;
           border: 2px solid salmon;
-          padding: 10px 25px;
-          font-family: 'Lato', sans-serif;
+          padding: 1% 2.5%;
+          font-family: 'Raleway', sans-serif;
+          font-size: small;
           font-weight: 500;
           background: transparent;
-          border-radius: 0px;
+          border-radius: 0;
+          position: absolute;
           outline: none !important;
           cursor: pointer;
           transition: all 0.3s ease;
           float: right;
+          right: 6%;
+          top: 64%;
           margin-right: 6%;
+
           &:hover {
             background: salmon;
             color: $color-4;
           }
-          &:active {
-            top: 2px;
-          }
         }
       }
 
-      &:hover .overlay {
-        opacity: 1;
-      }
       .title h3 {
         color: white;
         font-family: Playfair Display;
         font-size: xx-large;
+        font-weight: 600;
         line-height: 1.3em;
         padding: 8%;
         width: 80%;
@@ -334,7 +340,7 @@ $mq-xxl: 114em;
     background-repeat: no-repeat;
     background-size: cover;
     overflow: hidden;
-    animation: fade-in 0.8s ease-in-out both .6s;
+    animation: fade-in 0.8s ease-in-out both 0.6s;
   }
   /**
  * Animations
@@ -372,40 +378,75 @@ $mq-xxl: 114em;
     }
   }
 }
-
-@media (min-width:320px)  {
-   /* smartphones, iPhone, portrait 480x320 phones */
-   .posts .grid #brand h1 {
-     font-size: .8em;
-   }
+@media (min-width:320px) {
+  /* smartphones, iPhone, portrait 480x320 phones */
+  .posts .grid .grid-item .title h3 {
+    font-size: 0.5em;
+  }
+  .posts .grid .grid-item .overlay a.btn.btn-primary {
+    font-size: 0.5em;
+  }
+  .posts .grid #brand h1 {
+    font-size: 0.8em;
+  }
 }
-@media (min-width:481px)  {
-   /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
-   .posts .grid #brand h1 {
-     font-size: .8em;
-   }
- }
-@media (min-width:641px)  {
-   /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
-   .posts .grid #brand h1 {
-     font-size: 3em;
-   }
- }
-@media (min-width:961px)  {
-   /* tablet, landscape iPad, lo-res laptops ands desktops */
-   .posts .grid #brand h1 {
-     font-size: 3em;
-   }
- }
+@media (min-width:481px) {
+  /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+  .posts .grid .grid-item .title h3 {
+    font-size: 0.8em;
+  }
+  .posts .grid .grid-item .overlay a.btn.btn-primary {
+    font-size: 0.5em;
+  }
+  .posts .grid #brand h1 {
+    font-size: 0.8em;
+  }
+}
+@media (min-width:641px) {
+  /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+  .posts .grid .grid-item .title h3 {
+    font-size: 1.3em;
+  }
+  .posts .grid .grid-item .overlay a.btn.btn-primary {
+    font-size: 1em;
+  }
+  .posts .grid #brand h1 {
+    font-size: 3em;
+  }
+}
+@media (min-width:961px) {
+  /* tablet, landscape iPad, lo-res laptops ands desktops */
+  .posts .grid .grid-item .title h3 {
+    font-size: 1.6em;
+  }
+  .posts .grid .grid-item .overlay a.btn.btn-primary {
+    font-size: 1em;
+  }
+  .posts .grid #brand h1 {
+    font-size: 3em;
+  }
+}
 @media (min-width:1025px) {
-   /* big landscape tablets, laptops, and desktops */
-   .posts .grid #brand h1 {
-     font-size: 6em;
-   }
- }
+  /* big landscape tablets, laptops, and desktops */
+  .posts .grid .grid-item .title h3 {
+    font-size: 1.8em;
+  }
+  .posts .grid .grid-item .overlay a.btn.btn-primary {
+    font-size: 1em;
+  }
+  .posts .grid #brand h1 {
+    font-size: 6em;
+  }
+}
 @media (min-width:1281px) {
-   /* hi-res laptops and desktops */
-   .posts .grid #brand h1 {
-     font-size: 6em;
-   }
- }
+  /* hi-res laptops and desktops */
+  .posts .grid .grid-item .title h3 {
+    font-size: 2.6em;
+  }
+  .posts .grid .grid-item .overlay a.btn.btn-primary {
+    font-size: 1em;
+  }
+  .posts .grid #brand h1 {
+    font-size: 6em;
+  }
+}
