@@ -268,16 +268,38 @@ html, body {
   }
 }
 
+.grid {
+  height: 100vh !important;
+}
+
 .pages {
   color: white;
+  .grid-item {
+    width: 32%;
+    padding:  0;
+    margin:  0;
+    display:  inline-block;
+    iframe {
+      width: 100%;
+    }
+  }
   .row {
     position: relative;
   }
-	h1, h2, h3 {
-		font-family: "Playfair Display";
-	}
-	p {
-		font-family: "Raleway";
+  p {
+    color: black;
+    font-family: "Raleway";
+    font-size: large;
+  }
+  #freelance__work {
+    font-family: "Raleway";
+    font-size: x-large;
+    li {
+      margin: 5% 0;
+    }
+  }
+	#more-box p {
+    color: white;
 		line-height: 23px;
 	}
   #header-img {
