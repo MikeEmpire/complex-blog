@@ -21,7 +21,7 @@ $(document).on('turbolinks:click', function(){
   // animate on fade out
   $('.page-content')
 		.hide()
-    .addClass('animated fadeOutUp')
+    .addClass('animated zoomOut')
     .off('webkitAnimationEnd oanimationend msAnimationEnd animationend');
 });
 

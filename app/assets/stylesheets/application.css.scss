@@ -419,6 +419,49 @@ html, body {
     right: 3%;
     width: 40%;
   }
+  #inspiration__img {
+    position: absolute;
+    right: 3%;
+    width: 40%;
+  }
+  #posts__link {
+    margin-bottom: 10%;
+    font-family: "Raleway";
+    float: none;
+    color: $color-2;
+    text-transform: capitalize;
+    &:hover {
+      color: $color-1;
+      border: 1px solid $color-2;
+    }
+  }
+  #last-about-row {
+    h1 {
+      font-family: Playfair Display;
+      color: salmon;
+      font-size: 4.4em;
+      font-style: italic;
+      position: absolute;
+    }
+  }
+  #inspiration__box {
+    background: #88BBD6;
+    border-radius: 20px;
+    margin-bottom: 10%;
+    margin-top: 23%;
+    padding: 20px;
+    h3 {
+      font-family: Playfair Display;
+      font-style: italic;
+    }
+    ul {
+      list-style: none;
+      font-family: "Raleway";
+      li {
+        padding: .5em 0;
+      }
+    }
+  }
   #more-box {
     background:  $color-2;
     margin-bottom: 10%;

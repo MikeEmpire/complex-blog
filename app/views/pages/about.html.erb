@@ -39,9 +39,9 @@
 
   <!-- row-start -->
   <div class="row" id="last-about-row">
-    <!-- <%= image_tag("stuartscott.jpg") %>
+    <%= image_tag("stuartscott.jpg", id: "inspiration__img") %>
     <h1>Inspirations</h1>
-    <div class="col-md-offset-2 col-md-6 col-sm-6 col-xs-6">
+    <div class="col-md-9 col-sm-7 text-center" id="inspiration__box">
       <h3>I am obsessed with fashion and sneakers
       I’m a huge hip hop enthusiast
       People That Inspire Me:</h3>
@@ -57,7 +57,14 @@
         <li>Bomani Jones</li>
         <li>Elliot Wilson</li>
       </ul>
-    </div> -->
+    </div>
+  </div>
+  <div class="row text-center">
+    <%= link_to(posts_path) do %>
+      <div class="col-md-9 col-sm-7 text-center btn btn-primary" id="posts__link">
+        <h3>Check out my work</h3>
+      </div>
+    <% end %>
   </div>
   <!-- row-end -->
 
