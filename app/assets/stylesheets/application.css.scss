@@ -71,6 +71,15 @@ header#nav {
   }
 }
 
+#resume {
+  position: relative;
+  font-family: "Raleway";
+  font-size: large;
+  left: 25%;
+  margin: 1em 0;
+  text-align: center;
+}
+
 p#trigger-overlay {
   color: $color-1;
 	cursor: context-menu;
