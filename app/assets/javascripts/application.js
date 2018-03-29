@@ -107,4 +107,4 @@ $(document).on('turbolinks:load', function(event) {
 		triggerBttn.addEventListener( 'click', toggleOverlay );
 		closeBttn.addEventListener( 'click', toggleOverlay );
 	})();
-})
+});
