@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/galetahub/ckeditor.git
-  revision: 115a50628baceeac5cc37363db082e3f5ba03c76
+  revision: dc2cef2c2c3358124ebd86ca2ef2335cc898b41f
   specs:
     ckeditor (4.2.4)
       orm_adapter (~> 0.5.0)
