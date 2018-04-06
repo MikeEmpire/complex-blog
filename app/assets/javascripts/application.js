@@ -15,4 +15,10 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require ckeditor/init
-//= require_tree .
+//= require modernizr.custom
+//= require cable
+//= require classie
+//= require imagesloaded.min
+//= require masonry
+//= require init_ckeditor
+//= require main
